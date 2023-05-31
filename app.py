@@ -23,10 +23,8 @@ def query():
     cursor = db.cursor()
     cursor.execute(query)
     result = cursor.fetchall()
-
     cursor.execute("SHOW TABLES")
-    tables = cursor.fetchall()  # Fetch tables again to pass to the template
-
+    tables = cursor.fetchall()
     return render_template('index.html', tables=tables, result=result, query=query)
 
 if __name__ == '__main__':
